@@ -30,5 +30,10 @@ func beginListeningMode() {
 
 func executeCommandDirectly() {
 	intent, err := cognition.ResolveIntent(*command)
-	consciousness.Respond(err, *command, intent, intent.Response(*command))
+
+	if intent == nil {
+		consciousness.HandleMissingIntent(intent)
+	} else {
+		consciousness.Respond(err, *command, intent, intent.Response(*command))
+	}
 }

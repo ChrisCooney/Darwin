@@ -14,8 +14,16 @@ func PayAttention() {
 
 		intent, err := cognition.ResolveIntent(input)
 
-		Respond(err, input, intent, intent.Response(input))
+		if intent == nil {
+			HandleMissingIntent(intent)
+		} else {
+			Respond(err, input, intent, intent.Response(input))
+		}
 	}
+}
+
+func HandleMissingIntent(intent intent.Intent) {
+	output.PrintError("Sorry, I don't understand.")
 }
 
 func Respond(err error, input string, intent intent.Intent, response string) {
