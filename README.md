@@ -1,10 +1,11 @@
 # Darwin
 
-I realised there were a lot of things that I do manually on my machine. At the same exact moment, I realised that my Golang knowledge was awful. It's not a big leap to work out what happened next.
+I realised there were a lot of things that I do manually on my machine. At the same exact moment, I realised that my Golang knowledge was awful. It's not a big leap to work out what happened next. This project isn't intended for wider usage, I'm just putting it on Github so
+it can live with all my other code on here.
 
 ## Installation
 
-In the scripts folder is a `build-and-install.sh`. Make sure you run it from within the scripts folder!
+In the scripts folder is a `build-and-install.sh`. This will also attempt to push onto my USB drive.
 
 ## Secrets
 
