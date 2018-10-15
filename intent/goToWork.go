@@ -45,12 +45,25 @@ func (intent GoToWorkIntent) Probability(input string) int {
 
 func (intent GoToWorkIntent) Response(input string) string {
 	output.PrintOutput("Opening Work Applications")
-	for _, app := range WorkApplications {
-		applications.OpenApplication(app)
-		output.PrintOutput(fmt.Sprintf("%s opened", app))
-	}
+	responseChannel := make(chan string)
+
+	openAppsInParallel(responseChannel)
+	reportAppStatus(responseChannel)
 
 	return "Have fun"
+}
+
+func openAppsInParallel(responseChannel chan string) {
+	for _, app := range WorkApplications {
+		go applications.OpenApplicationAsync(app, responseChannel)
+	}
+}
+
+func reportAppStatus(responseChannel chan string) {
+	for x := 0; x < len(WorkApplications); x++ {
+		openedApp := <-responseChannel
+		output.PrintOutput(fmt.Sprintf("%s opened", openedApp))
+	}
 }
 
 func (intent GoToWorkIntent) PostSpeech(input string) {
