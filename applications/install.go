@@ -58,3 +58,13 @@ func IsHealthy(command string) bool {
 
 	return err == nil
 }
+
+type ApplicationHealth struct {
+	AppName string
+	Health  bool
+}
+
+func IsHealthyAsync(appName string, command string, responseChannel chan ApplicationHealth) {
+	isHealthy := IsHealthy(command)
+	responseChannel <- ApplicationHealth{Health: isHealthy, AppName: appName}
+}

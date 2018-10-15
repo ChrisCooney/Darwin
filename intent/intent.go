@@ -1,6 +1,6 @@
 package intent
 
-var IntentsList = []Intent{SleepIntent{}, SearchIntent{}, GoToWorkIntent{}, HomeTimeIntent{}, ListIntentionsIntent{}, OpenAppIntent{}, SetMeUpIntent{}}
+var IntentsList = []Intent{SleepIntent{}, SearchIntent{}, GoToWorkIntent{}, HomeTimeIntent{}, ListIntentionsIntent{}, OpenAppIntent{}, SetMeUpIntent{}, TestApplicationsIntent{}}
 
 // Intent interface defines some behaviour Darwin can perform when given the appropriate input.
 type Intent interface {

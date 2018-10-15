@@ -11,14 +11,17 @@ func PayAttention() {
 
 	for keepAlive {
 		input := GetTextInput()
+		HandleInput(input)
+	}
+}
 
-		intent, err := cognition.ResolveIntent(input)
+func HandleInput(input string) {
+	intent, err := cognition.ResolveIntent(input)
 
-		if intent == nil {
-			HandleMissingIntent(intent)
-		} else {
-			Respond(err, input, intent, intent.Response(input))
-		}
+	if intent == nil {
+		HandleMissingIntent(intent)
+	} else {
+		Respond(err, input, intent, intent.Response(input))
 	}
 }
 

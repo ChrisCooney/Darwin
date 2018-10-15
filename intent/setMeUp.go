@@ -70,6 +70,7 @@ func installCaskApps() output.CountSummary {
 	for _, app := range BrewCaskInstallations {
 		err := applications.InstallBrewCaskApp(app)
 
+		// Can't invoke healthcheck from command line for GUI apps so rely on brew.
 		if err != nil {
 			output.PrintError(fmt.Sprintf("Error installing %s. %s", app, err.Error()))
 		} else {

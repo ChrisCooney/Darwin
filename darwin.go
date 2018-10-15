@@ -1,7 +1,6 @@
 package main
 
 import (
-	"Darwin/cognition"
 	"Darwin/consciousness"
 	"Darwin/output"
 	"strings"
@@ -29,11 +28,5 @@ func beginListeningMode() {
 }
 
 func executeCommandDirectly() {
-	intent, err := cognition.ResolveIntent(*command)
-
-	if intent == nil {
-		consciousness.HandleMissingIntent(intent)
-	} else {
-		consciousness.Respond(err, *command, intent, intent.Response(*command))
-	}
+	consciousness.HandleInput(*command)
 }
