@@ -60,7 +60,7 @@ func reportAppHealth(responseChannel chan applications.ApplicationHealth) output
 		appHealth := <-responseChannel
 
 		if appHealth.Health == true {
-			output.PrintOutput(fmt.Sprintf("%s is healthy.", appHealth.AppName))
+			output.PrintOutput(fmt.Sprintf("%s is healthy", appHealth.AppName))
 			healthyCount++
 		} else {
 			output.PrintError(fmt.Sprintf("%s is not healthy", appHealth.AppName))
