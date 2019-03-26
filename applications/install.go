@@ -37,6 +37,8 @@ func CommandLineApps() []CommandLineApp {
 	apps = append(apps, CommandLineApp{BrewPackageName: "thefuck", HealthCheckCommand: "thefuck --version"})
 	apps = append(apps, CommandLineApp{BrewPackageName: "kubernetes-cli", HealthCheckCommand: "kubectl config current-context"})
 	apps = append(apps, CommandLineApp{BrewPackageName: "kubectx", HealthCheckCommand: "kubectx --help"})
+	apps = append(apps, CommandLineApp{BrewPackageName: "kubernetes-helm", HealthCheckCommand: "helm --version"})
+
 	return apps
 }
 
