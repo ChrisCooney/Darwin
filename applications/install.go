@@ -28,6 +28,7 @@ func CommandLineApps() []CommandLineApp {
 	apps := []CommandLineApp{}
 
 	apps = append(apps, CommandLineApp{BrewPackageName: "node", HealthCheckCommand: "node --version"})
+	apps = append(apps, CommandLineApp{BrewPackageName: "terraform", HealthCheckCommand: "terraform --version"})
 	apps = append(apps, CommandLineApp{BrewPackageName: "jdk8", HealthCheckCommand: "java -version"})
 	apps = append(apps, CommandLineApp{BrewPackageName: "ansible", HealthCheckCommand: "ansible --version"})
 	apps = append(apps, CommandLineApp{BrewPackageName: "python3", HealthCheckCommand: "python3 --version"})
@@ -37,8 +38,6 @@ func CommandLineApps() []CommandLineApp {
 	apps = append(apps, CommandLineApp{BrewPackageName: "thefuck", HealthCheckCommand: "thefuck --version"})
 	apps = append(apps, CommandLineApp{BrewPackageName: "kubernetes-cli", HealthCheckCommand: "kubectl config current-context"})
 	apps = append(apps, CommandLineApp{BrewPackageName: "kubectx", HealthCheckCommand: "kubectx --help"})
-	apps = append(apps, CommandLineApp{BrewPackageName: "kubernetes-helm", HealthCheckCommand: "helm --version"})
-
 	return apps
 }
 
